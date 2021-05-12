@@ -15,7 +15,11 @@ class MyHomePage extends StatelessWidget {
       oneSec,
       (Timer timer) {
         if (_start == 0) {
-          Navigator.pushNamed(context, ListScreen.id);
+          Navigator.pushNamedAndRemoveUntil(
+            context,
+            ListScreen.id,
+            (route) => false,
+          );
           _timer.cancel();
         } else {
           _start--;
